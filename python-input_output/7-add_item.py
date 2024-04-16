@@ -1,34 +1,36 @@
 #!/usr/bin/python3
-"""Module to define a base geometry class, BaseGeometry."""
+"""
+A script that adds command-line arguments to a list saved in a JSON file.
+This script supports adding new items across multiple runs.
+"""
+import sys
+from os import path
+import json
 
-class BaseGeometry:
-    """Represent the base functionality for geometry-related operations.
+def save_to_json_file(my_obj, filename):
+    """Write an object to a text file using JSON representation."""
+    with open(filename, "w") as f:
+        json.dump(my_obj, f)
 
-    Methods:
-        area: Calculates the area of a geometric object.
-        integer_validator: Validates that a given value is a positive integer.
-    """
+def load_from_json_file(filename):
+    """Create a Python object from a JSON file."""
+    with open(filename) as f:
+        return json.load(f)
 
-    def area(self) -> None:
-        """Raise an Exception as a placeholder for actual area calculation methods in derived classes.
+# File to store the list
+filename = 'add_item.json'
 
-        Raises:
-            Exception: Indicates that the area method is not implemented.
-        """
-        raise Exception("area() is not implemented")
+# Check if file exists and load existing data if it does
+if path.exists(filename):
+    try:
+        items = load_from_json_file(filename)
+    except json.JSONDecodeError:  # in case the file is empty and thus an error occurs
+        items = []
+else:
+    items = []
 
-    def integer_validator(self, name: str, value: int) -> None:
-        """Validate that a parameter is a positive integer.
+# Add command-line arguments to the list
+items.extend(sys.argv[1:])
 
-        Args:
-            name (str): The name of the parameter.
-            value (int): The parameter to validate.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than or equal to 0.
-        """
-        if not isinstance(value, int):
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+# Save the updated list to the file
+save_to_json_file(items, filename)
