@@ -1,15 +1,7 @@
 #!/usr/bin/python3
-"""
-A script that adds all command line arguments to a list and saves them
+""" A script that adds all command line arguments to a list and saves them
 to a JSON file. This script utilizes two external functions to handle
-JSON file operations.
-
-`save_to_json_file` function from `5-save_to_json_file.py` is used to save data to a file.
-`load_from_json_file` function from `6-load_from_json_file.py` is used to load data from a file.
-
-The resultant list is stored in a file named 'add_item.json'.
-If the file does not exist, it is created.
-"""
+JSON file operations."""
 
 import sys
 import os
