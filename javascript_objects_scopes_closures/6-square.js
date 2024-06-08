@@ -3,7 +3,7 @@
 const SquareBase = require('./5-square');
 
 class Square extends SquareBase {
-  charPrint (c) {
+  char Print (c) {
     const char = c || 'X';
     if (this.width && this.height) {
       const row = char.repeat(this.width);
