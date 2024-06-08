@@ -36,7 +36,7 @@ function getMoviesWithWedge(apiUrl) {
 async function main() {
   try {
     const count = await getMoviesWithWedge(apiUrl);
-    console.log(`Number of movies where Wedge Antilles is present: ${count}`);
+    console.log(`${count}`);
   } catch (error) {
     console.error("Error:", error);
     process.exit(1);
