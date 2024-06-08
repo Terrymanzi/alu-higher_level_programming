@@ -5,7 +5,7 @@ const fs = require('fs');
 const url = process.argv[2];
 const filePath = process.argv[3];
 
-request(url, (error, response, body) => {
+request.get(url, (error, response, body) => {
   if (error) {
     console.error('Error:', error);
   } else if (response.statusCode !== 200) {
@@ -15,7 +15,7 @@ request(url, (error, response, body) => {
       if (err) {
         console.error('Error:', err);
       } else {
-        console.log(`Data written to ${filePath}`);
+        console.log(`Content written to ${filePath}`);
       }
     });
   }
