@@ -14,7 +14,7 @@ function saveWebPage(url, filePath) {
       return;
     }
 
-    fs.writeFile(filePath, body, 'utf8', function (err) {
+    fs.writeFile(filePath, body + '\n', 'utf8', function (err) {
       if (err) {
         console.error('Error writing file:', err);
         return;
