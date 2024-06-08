@@ -11,7 +11,7 @@ if (!apiUrl) {
 const characterId = 18; // Wedge Antilles
 
 // Function to fetch the number of movies where Wedge Antilles is present
-function getMoviesWithWedge(apiUrl) {
+function getMoviesWithWedge (apiUrl) {
   return new Promise((resolve, reject) => {
     request(apiUrl, (error, response, body) => {
       if (error) {
@@ -33,7 +33,7 @@ function getMoviesWithWedge(apiUrl) {
 }
 
 // Main function to print the number of movies with Wedge Antilles
-async function main() {
+async function main () {
   try {
     const count = await getMoviesWithWedge(apiUrl);
     console.log(`${count}`);
@@ -43,4 +43,4 @@ async function main() {
   }
 }
 
-main();
+main ();
