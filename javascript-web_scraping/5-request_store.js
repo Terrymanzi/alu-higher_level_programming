@@ -21,6 +21,9 @@ request(url, (error, response, body) => {
     return;
   }
 
+  // Trim any leading whitespace or unwanted characters
+  body = body.trim();
+
   fs.writeFile(filePath, body, { encoding: 'utf-8' }, (err) => {
     if (err) {
       console.error('Error writing to file:', err);
