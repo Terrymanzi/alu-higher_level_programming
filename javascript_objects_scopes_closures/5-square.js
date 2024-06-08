@@ -8,7 +8,7 @@ class Rectangle {
     this.height = h;
   }
 
-  print() {
+  print () {
     if (this.width && this.height) {
       const row = 'X'.repeat(this.width);
       for (let i = 0; i < this.height; i++) {
@@ -17,11 +17,11 @@ class Rectangle {
     }
   }
 
-  rotate() {
+  rotate () {
     [this.width, this.height] = [this.height, this.width];
   }
 
-  double() {
+  double () {
     this.width *= 2;
     this.height *= 2;
   }
