@@ -1,4 +1,5 @@
-ke a url and display the values"""
+#!/usr/bin/python3
+"""take a url and display the values"""
 
 
 import requests
